@@ -1,33 +1,51 @@
-Futuristic Hardware HUD
-A futuristic, semi‑transparent hardware‑monitoring HUD for macOS, built with C++20, Dear ImGui, GLFW, and OpenGL 3.
-It floats as a borderless overlay and shows live CPU load, RAM usage, process list with terminate, and a weather widget powered by Open‑Meteo.
-Features
-HUD‑style overlay
-Borderless, semi‑transparent window with neon‑blue accent theme
-Rounded corners, dark UI, designed for a “sci‑fi dashboard” look
-Hardware tab
-Live CPU usage with scrolling history plot
-RAM usage (used vs total, in GB)
-Process manager
-Searchable list by name or PID
-Terminate button per process (sends a safe terminate signal)
-Weather widget
-Fetches current weather for a hardcoded city via Open‑Meteo
-Non‑blocking network call using std::thread
-Shows temperature, wind speed, and a simple summary code
-Clean architecture
-App class encapsulates GLFW + ImGui init, frame loop, rendering, and shutdown
-SystemMonitor class handles all system data (hardware, processes, weather)
-UI code lives in a dedicated RenderUI() method
-macOS Prerequisites
+## Futuristic Hardware HUD
+
+A futuristic, semi‑transparent hardware‑monitoring HUD for macOS, built with **C++20**, **Dear ImGui**, **GLFW**, and **OpenGL 3**.  
+It floats as a borderless overlay and shows live **CPU load**, **RAM usage**, **process list with terminate**, and a **weather widget** powered by Open‑Meteo.
+
+---
+
+### Features
+
+- **HUD‑style overlay**
+  - Borderless, semi‑transparent window with neon‑blue accent theme
+  - Rounded corners, dark UI, designed for a “sci‑fi dashboard” look
+
+- **Hardware tab**
+  - Live **CPU usage** with scrolling history plot
+  - **RAM usage** (used vs total, in GB)
+
+- **Process manager**
+  - Searchable list by **name or PID**
+  - **Terminate** button per process (sends a safe terminate signal)
+
+- **Weather widget**
+  - Fetches current weather for a **hardcoded city** via **Open‑Meteo**
+  - Non‑blocking network call using `std::thread`
+  - Shows temperature, wind speed, and a simple summary code
+
+- **Clean architecture**
+  - `App` class encapsulates GLFW + ImGui init, frame loop, rendering, and shutdown
+  - `SystemMonitor` class handles all system data (hardware, processes, weather)
+  - UI code lives in a dedicated `RenderUI()` method
+
+---
+
+## macOS Prerequisites
+
 You’ll need:
-macOS (tested on recent macOS with Apple Clang)
-Xcode Command Line Tools (for compilers and system headers)
-CMake (3.21+)
-curl / libcurl (via Xcode SDK or Homebrew)
-A reasonably recent Python 3 (glad uses it to generate OpenGL loader code)
-1. Install Command Line Tools
+
+- **macOS** (tested on recent macOS with Apple Clang)
+- **Xcode Command Line Tools** (for compilers and system headers)
+- **CMake** (3.21+)
+- **curl / libcurl** (via Xcode SDK or Homebrew)
+- A reasonably recent **Python 3** (glad uses it to generate OpenGL loader code)
+
+### 1. Install Command Line Tools
+
 xcode-select --install
+
+
 If you already have Xcode or its tools installed, this may simply confirm.
 2. Install CMake (and optionally curl) via Homebrew
 If you don’t have Homebrew yet, install it from https://brew.sh, then:
